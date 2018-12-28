@@ -1,7 +1,7 @@
 {
   "name": "hops-mdx",
   "description": "MDX support for Hops applications.",
-  "version": "0.0.1-rc.0",
+  "version": "0.0.1-rc.1",
   "license": "MIT",
   "engines": {
     "node": ">=8.10.0"

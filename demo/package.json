@@ -1,6 +1,6 @@
 {
   "name": "hops-mdx-demo",
-  "version": "0.0.1-rc.0",
+  "version": "0.0.1-rc.1",
   "main": "app.js",
   "license": "MIT",
   "private": true,
@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "hops": "^11.0.1",
-    "hops-mdx": "^0.0.1-rc.0",
-    "hops-mdx-jest": "^0.0.1-rc.0",
+    "hops-mdx": "^0.0.1-rc.1",
+    "hops-mdx-jest": "^0.0.1-rc.1",
     "jest": "^23.4.2",
     "jest-preset-hops": "^11.0.1",
     "react": "^16.4.2",
