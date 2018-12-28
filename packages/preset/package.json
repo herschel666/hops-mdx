@@ -6,6 +6,11 @@
   "engines": {
     "node": ">=8.10.0"
   },
+  "keywords": [
+    "hops",
+    "react",
+    "mdx"
+  ],
   "dependencies": {
     "@mdx-js/mdx": "^0.16.6",
     "hops-mixin": "^11.0.1"
