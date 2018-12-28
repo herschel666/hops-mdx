@@ -18,7 +18,7 @@ If you don't already have an existing Hops project read this section [on how to 
 
 ### Basic usage
 
-Create a file `src/content.md`:
+Create a file `src/content.mdx`:
 
 ```mdx
 # Hello World!
@@ -31,7 +31,7 @@ Then import it as a component in your `src/app.js`:
 ```jsx
 import React from 'react';
 import { render } from 'hops';
-import Content from './content.md';
+import Content from './content.mdx';
 
 export default render(<Content />);
 ```
@@ -47,7 +47,7 @@ For advanced usage, [check out the MDX documentation](https://mdxjs.com/).
 
 ### Registering plugins
 
-MDX supports [Remark](https://github.com/wooorm/remark) plugins. To register them, define a `mdx.mdPlugins`-property on your [Hops configuration](https://github.com/xing/hops#configuration).
+MDX supports [Remark](https://github.com/wooorm/remark) plugins. To register them, define a `mdx.mdPlugins`-property on your [Hops preset configuration](https://github.com/xing/hops#configuration).
 
 To e.g. enable [remark-emoji](https://www.npmjs.com/package/remark-emoji) support, add the following value to your Hops config:
 
@@ -69,21 +69,23 @@ To e.g. enable [remark-emoji](https://www.npmjs.com/package/remark-emoji) suppor
 }
 ```
 
-Note that the plugin name and config object is wrapped into its own array!
+Note that the plugin's name and config object is wrapped into its own array!
 
 ### Testing
 
-In order to enable you to test components properly, that import MDX, there's a helper that brings MDX support to your Jest environment.
+In order to enable you to test components properly that import MDX, there's a helper that brings MDX support to the Jest environment of your Hops application.
 
 #### Installation
 
+_This helper should be used alongside [`jest-preset-hops`](https://github.com/xing/hops/tree/master/packages/jest-preset)._
+
 ```bash
-npm install --save hops-mdx-jest
+npm install --save-dev hops-mdx-jest
 ```
 
 #### Usage
 
-To use the helper, extend your Jest configuration. Assuming you're already using [`jest-preset-hops`](https://github.com/xing/hops/tree/master/packages/jest-preset), this should look like this:
+To use the helper, extend your Jest configuration like this:
 
 ```json
 {

@@ -7,7 +7,7 @@ This is a helper that brings MDX support to the Jest enviroment of your Hops app
 ## Installation
 
 ```bash
-npm install --save hops-mdx-jest
+npm install --save-dev hops-mdx-jest
 ```
 
 ## Usage
