@@ -18,7 +18,7 @@ If you don't already have an existing Hops project read this section [on how to 
 
 ### Basic usage
 
-Create a file `src/content.md`:
+Create a file `src/content.mdx`:
 
 ```mdx
 # Hello World!
@@ -31,7 +31,7 @@ Then import it as a component in your `src/app.js`:
 ```jsx
 import React from 'react';
 import { render } from 'hops';
-import Content from './content.md';
+import Content from './content.mdx';
 
 export default render(<Content />);
 ```
@@ -49,7 +49,7 @@ For advanced usage, [check out the MDX documentation](https://mdxjs.com/).
 
 #### Preset Options
 
-This preset can be configured through the `"aws"` key in your preset config.
+This preset can be configured through the `"mdx"` key in your preset config.
 
 ```json
 "hops": {
