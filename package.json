@@ -6,7 +6,7 @@
   "scripts": {
     "start": "yarn --cwd demo hops start",
     "release": "lerna publish",
-    "release:next": "lerna publish --cd-version=prerelease --preid=rc --npm-tag=next",
+    "release:next": "lerna publish prerelease --preid=rc --npm-tag=next",
     "test": "yarn lint && yarn --cwd demo jest",
     "lint": "eslint .",
     "fmt": "prettier --write '**/*.{js,json,css}' '**/README.md'"
