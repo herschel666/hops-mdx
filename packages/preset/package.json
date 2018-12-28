@@ -1,0 +1,17 @@
+{
+  "name": "hops-mdx",
+  "description": "MDX support for Hops applications.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^0.16.6",
+    "hops-mixin": "^11.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
