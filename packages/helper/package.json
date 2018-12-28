@@ -1,0 +1,25 @@
+{
+  "name": "hops-mdx-jest",
+  "description": "Enable hops-mdx in your Jest environment.",
+  "version": "0.1.0",
+  "main": "transform-mdx.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@mdx-js/loader": "^0.16.6",
+    "@mdx-js/mdx": "^0.16.6",
+    "babel-plugin-dynamic-import-node": "^2.2.0"
+  },
+  "peerDependencies": {
+    "jest": "^23.6.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
