@@ -1,5 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import testFileStub from 'jest-preset-hops/mocks/file';
+
 import { App } from '../app';
 
 describe('Demo', () => {
@@ -8,6 +10,15 @@ describe('Demo', () => {
     const [headline] = root.findByProps({ id: 'hops-mdx' }).children;
 
     expect(headline).toBe('Hops-MDX!');
+  });
+
+  it('should have the MDX logo', () => {
+    const { root } = renderer.create(<App />);
+    const {
+      props: { src },
+    } = root.findByType('img');
+
+    expect(src).toBe(testFileStub);
   });
 
   it('should have the <strong> element', () => {
