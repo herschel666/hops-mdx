@@ -1,6 +1,8 @@
 const { join } = require('path');
 const { statSync } = require('fs');
 const { colors } = require('util').inspect;
+const visit = require('unist-util-visit');
+const { isUrlRequest, urlToRequest } = require('loader-utils');
 const { Mixin } = require('hops-mixin');
 
 const { yellow, bold } = ['yellow', 'bold'].reduce(
@@ -41,6 +43,28 @@ $ ${cmd}`);
   }
 };
 
+const isImage = (node) =>
+  node.tagName === 'img' && isUrlRequest(node.properties.src);
+
+const imageComponent = (src, alt) => {
+  const props = `{ src: ${src}, alt: '${alt}' }`;
+
+  return `{(() => {
+  const elem = components && components.img || 'img';
+  return React.createElement(elem, ${props});
+})()}`;
+};
+
+const imageToMdx = () => (root) =>
+  visit(root, isImage, (node) => {
+    const src = `require('${urlToRequest(node.properties.src)}')`;
+    const alt = node.properties.alt || '';
+    node.type = 'jsx';
+    node.value = imageComponent(src, alt);
+    delete node.properties;
+    delete node.tagName;
+  });
+
 class HopsMdxMixin extends Mixin {
   configureBuild(_, { jsLoaderConfig, allLoaderConfigs }) {
     const usesYarn = yarnLockFileExists(this.config.rootDir);
@@ -50,7 +74,8 @@ class HopsMdxMixin extends Mixin {
         ? this.config.mdx.mdPlugins
             .map(requireMdPlugin(usesYarn))
             .filter(Boolean)
-        : null;
+        : [];
+    const hastPlugins = [imageToMdx];
     const mdxLoaderConfig = {
       test: /\.mdx?$/,
       use: [
@@ -60,7 +85,7 @@ class HopsMdxMixin extends Mixin {
         },
         {
           loader: require.resolve('@mdx-js/loader'),
-          options: mdPlugins ? { mdPlugins } : {},
+          options: { mdPlugins, hastPlugins },
         },
       ],
     };
