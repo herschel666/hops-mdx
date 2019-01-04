@@ -1,4 +1,3 @@
-// eslint-disable-next-line node/no-extraneous-require
 const { teardown: teardownDevServer } = require('jest-dev-server');
 const setup = require('./global-setup');
 

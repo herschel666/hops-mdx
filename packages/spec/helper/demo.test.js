@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { App } from '../../app';
+import { App } from '../app';
 
 describe('Demo (helper)', () => {
   it('should have the correct headline', () => {
@@ -19,7 +19,7 @@ describe('Demo (helper)', () => {
       },
     ] = root.findAllByType('img');
 
-    expect(src).toBe('./files/mdx-logo.svg');
+    expect(src).toBe('./mdx-logo.svg');
     expect(alt).toBe('MDX Logo');
   });
 

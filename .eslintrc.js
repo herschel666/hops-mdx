@@ -1,5 +1,3 @@
-// TODO: use npm.im/jest-runner-eslint
-
 module.exports = {
   extends: [
     'eslint:recommended',
