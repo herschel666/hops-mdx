@@ -49,5 +49,6 @@ typings/
 .DS_Store
 
 # Default hops build directory
+.vscode
 demo/build
 demo/dist
