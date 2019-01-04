@@ -1,10 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import testFileStub from 'jest-preset-hops/mocks/file';
 
 import { App } from '../app';
 
-describe('Demo', () => {
+describe('Demo (helper)', () => {
   it('should have the correct headline', () => {
     const { root } = renderer.create(<App />);
     const [headline] = root.findByProps({ id: 'hops-mdx' }).children;
@@ -14,20 +13,39 @@ describe('Demo', () => {
 
   it('should have the MDX logo', () => {
     const { root } = renderer.create(<App />);
-    const {
-      props: { src },
-    } = root.findByType('img');
+    const [
+      {
+        props: { src, alt },
+      },
+    ] = root.findAllByType('img');
 
-    expect(src).toBe(testFileStub);
+    expect(src).toBe('./files/mdx-logo.svg');
+    expect(alt).toBe('MDX Logo');
   });
 
-  it('should have the <strong> element', () => {
+  it('should have a random cat image', () => {
     const { root } = renderer.create(<App />);
-    const {
-      children: [text],
-    } = root.findByType('strong');
+    const [
+      ,
+      {
+        props: { src, alt },
+      },
+    ] = root.findAllByType('img');
 
-    expect(text).toBe('world');
+    expect(src).toBe('http://placekitten.com/300/200');
+    expect(alt).toBe('Random cat');
+  });
+
+  it('should apply "remark-emoji" plugin', () => {
+    const { root } = renderer.create(<App />);
+    const [, { children }] = root.findAllByType('p');
+    const text = children
+      .filter((child) => {
+        return typeof child === 'string';
+      })
+      .join(' ');
+
+    expect(text.indexOf('👍') > -1).toBe(true);
   });
 
   it('should have three list items', () => {
