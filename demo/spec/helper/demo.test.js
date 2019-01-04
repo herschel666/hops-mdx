@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { App } from '../app';
+import { App } from '../../app';
 
 describe('Demo (helper)', () => {
   it('should have the correct headline', () => {

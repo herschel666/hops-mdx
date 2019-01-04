@@ -1,0 +1,14 @@
+{
+  "name": "hops-mdx-test-helper",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "jest": {
+    "preset": "jest-preset-hops",
+    "transform": {
+      "\\.mdx?$": "hops-mdx-jest"
+    }
+  }
+}

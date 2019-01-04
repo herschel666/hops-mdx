@@ -1,0 +1,8 @@
+{
+  "name": "hops-mdx-test-preset",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=8.10.0"
+  }
+}
