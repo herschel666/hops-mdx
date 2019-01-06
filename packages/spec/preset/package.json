@@ -4,9 +4,5 @@
   "private": true,
   "engines": {
     "node": ">=8.10.0"
-  },
-  "dependencies": {
-    "got": "^9.5.0",
-    "jest-dev-server": "^3.7.0"
   }
 }

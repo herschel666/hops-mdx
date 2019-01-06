@@ -1,3 +1,4 @@
+/* eslint-disable node/no-extraneous-require */
 const { setup: setupDevServer } = require('jest-dev-server');
 const got = require('got');
 
