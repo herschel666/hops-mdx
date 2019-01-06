@@ -1,7 +1,7 @@
 {
   "name": "hops-mdx-jest",
   "description": "Enable hops-mdx in your Jest environment.",
-  "version": "0.0.1-rc.1",
+  "version": "0.1.0",
   "main": "transform-mdx.js",
   "license": "MIT",
   "engines": {
