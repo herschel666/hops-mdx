@@ -6,7 +6,7 @@
 
 This is a [preset for Hops](https://github.com/xing/hops/tree/master#presets) that brings [MDX](https://mdxjs.com/) support to your application.
 
-### Installation
+## Installation
 
 _This preset must be used together with the `hops-react` preset._
 
@@ -16,7 +16,7 @@ npm install --save hops-mdx
 
 If you don't already have an existing Hops project read this section [on how to set up your first Hops project](https://github.com/xing/hops/tree/master#quick-start).
 
-### Basic usage
+## Basic usage
 
 Create a file `src/content.mdx`:
 
@@ -45,7 +45,7 @@ This will render a single Hops page with the content:
 
 For advanced usage, [check out the MDX documentation](https://mdxjs.com/).
 
-### Registering plugins
+## Registering plugins
 
 MDX supports [Remark](https://github.com/wooorm/remark) plugins. To register them, define a `mdx.mdPlugins`-property on your [Hops preset configuration](https://github.com/xing/hops#configuration).
 
@@ -71,11 +71,11 @@ To e.g. enable [remark-emoji](https://www.npmjs.com/package/remark-emoji) suppor
 
 Note that the plugin's name and config object is wrapped into its own array!
 
-### Testing
+## Testing
 
 In order to enable you to test components properly that import MDX, there's a helper that brings MDX support to the Jest environment of your Hops application.
 
-#### Installation
+### Installation
 
 _This helper should be used alongside [`jest-preset-hops`](https://github.com/xing/hops/tree/master/packages/jest-preset)._
 
@@ -83,7 +83,7 @@ _This helper should be used alongside [`jest-preset-hops`](https://github.com/xi
 npm install --save-dev hops-mdx-jest
 ```
 
-#### Usage
+### Usage
 
 To use the helper, extend your Jest configuration like this:
 
@@ -99,3 +99,7 @@ To use the helper, extend your Jest configuration like this:
 ```
 
 Now your MDX components will e.g. be fully rendered into snapshot tests.
+
+## License
+
+MIT @ [Emanuel Kluge](https://twitter.com/Herschel_R)
