@@ -23,16 +23,18 @@
     }
   },
   "jest": {
-    "preset": "jest-preset-hops",
-    "transform": {
-      "\\.mdx?$": "hops-mdx-jest"
-    }
+    "projects": [
+      "<rootDir>/helper",
+      "<rootDir>/preset"
+    ]
   },
   "dependencies": {
+    "got": "^9.5.0",
     "hops": "^11.0.1",
     "hops-mdx": "^0.0.1-rc.1",
     "hops-mdx-jest": "^0.0.1-rc.1",
     "jest": "^23.4.2",
+    "jest-dev-server": "^3.7.0",
     "jest-preset-hops": "^11.0.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

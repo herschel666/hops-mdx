@@ -20,7 +20,8 @@
     "@babel/preset-react": "^7.0.0",
     "@mdx-js/loader": "^0.16.6",
     "@mdx-js/mdx": "^0.16.6",
-    "babel-plugin-dynamic-import-node": "^2.2.0"
+    "babel-plugin-dynamic-import-node": "^2.2.0",
+    "cosmiconfig": "^5.0.7"
   },
   "peerDependencies": {
     "jest": "^23.6.0",

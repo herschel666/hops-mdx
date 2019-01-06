@@ -4,11 +4,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "yarn --cwd demo hops start",
+    "start": "yarn --cwd packages/spec hops start",
     "release": "lerna publish",
     "release:next": "lerna publish prerelease --preid=rc --npm-tag=next",
-    "test": "yarn lint && yarn --cwd demo jest",
-    "lint": "eslint .",
+    "test": "yarn lint && yarn jest",
+    "jest": "yarn --cwd packages/spec jest --runInBand",
+    "lint": "eslint ./packages",
     "fmt": "prettier --write '**/*.{js,json,css}' '**/README.md'"
   },
   "engines": {
