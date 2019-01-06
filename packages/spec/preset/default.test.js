@@ -2,10 +2,10 @@
 const { teardown: teardownDevServer } = require('jest-dev-server');
 const setup = require('./global-setup');
 
-describe('Demo (preset)', () => {
+describe('Demo (preset) => default', () => {
   beforeAll(async () => {
     document.body.innerHTML = await setup();
-  });
+  }, 15000);
 
   afterAll(async () => {
     await teardownDevServer();

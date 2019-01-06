@@ -1,7 +1,14 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 
-import { App } from '../app';
+import { App as BasicApp } from '../app';
+
+const App = () => (
+  <MemoryRouter>
+    <BasicApp />
+  </MemoryRouter>
+);
 
 describe('Demo (helper)', () => {
   it('should have the correct headline', () => {

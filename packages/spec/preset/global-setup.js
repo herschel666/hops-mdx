@@ -4,14 +4,18 @@ const got = require('got');
 
 const { PORT = '8081' } = process.env;
 
-module.exports = async () => {
+const delay = (timeout) => new Promise((done) => setTimeout(done, timeout));
+
+module.exports = async (pathname = '/') => {
   await setupDevServer({
     command: `PORT=${PORT} yarn start`,
-    launchTimeout: 100000,
+    launchTimeout: 50000,
     port: Number(PORT),
     usedPortAction: 'kill',
   });
-  const { body } = await got(`http://localhost:${PORT}/`);
+  await delay(10000);
+  const pathWithLeadingSlash = pathname.replace(/^(\/+|\b|$)/, '/');
+  const { body } = await got(`http://localhost:${PORT}${pathWithLeadingSlash}`);
 
   return body
     .split(/<body.*>/)
