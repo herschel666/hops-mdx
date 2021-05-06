@@ -1,6 +1,6 @@
 const mdx = require('@mdx-js/mdx');
 const babel = require('@babel/core');
-const cosmiconfig = require('cosmiconfig');
+const { cosmiconfigSync } = require('cosmiconfig');
 
 const defaultMdxConfig = { mdPlugins: [] };
 
@@ -11,6 +11,7 @@ const options = {
       {
         modules: 'commonjs',
         useBuiltIns: 'usage',
+        corejs: 3,
         targets: { node: 'current' },
       },
     ],
@@ -25,6 +26,8 @@ const options = {
   babelrc: false,
 };
 
+const js = String.raw;
+
 const requirePlugin = (plugin) => {
   if (Array.isArray(plugin)) {
     return [require(plugin[0])].concat(plugin.slice(1));
@@ -33,13 +36,14 @@ const requirePlugin = (plugin) => {
 };
 
 module.exports.process = (src) => {
-  const { config = defaultMdxConfig } = cosmiconfig('hops').searchSync();
-  const mdPlugins = config.mdx.mdPlugins.map(requirePlugin);
+  const result = cosmiconfigSync('hops').search();
+  const { config = defaultMdxConfig } = result;
+  const remarkPlugins = config.mdx.mdPlugins.map(requirePlugin);
 
   try {
-    const injectedJSX = `import React from 'react';
-import MDXTag from '@mdx-js/tag/dist/mdx-tag';
-${mdx.sync(src, { mdPlugins })}`;
+    const injectedJSX = js`import React from 'react';
+import { mdx } from '@mdx-js/react';
+${mdx.sync(src, { remarkPlugins })}`;
 
     // Transform ES6 with babel
     return babel.transformSync(injectedJSX, options).code;

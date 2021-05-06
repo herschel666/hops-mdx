@@ -1,5 +1,8 @@
 /* eslint-disable node/no-extraneous-require */
-const { setup: setupDevServer } = require('jest-dev-server');
+const {
+  setup: setupDevServer,
+  teardown: teardownDevServer,
+} = require('jest-dev-server');
 const got = require('got');
 
 const { PORT = '8081' } = process.env;
@@ -17,10 +20,12 @@ module.exports = async (pathname = '/') => {
   const pathWithLeadingSlash = pathname.replace(/^(\/+|\b|$)/, '/');
   const { body } = await got(`http://localhost:${PORT}${pathWithLeadingSlash}`);
 
-  return body
+  const html = body
     .split(/<body.*>/)
     .pop()
     .split('</body>')
     .shift()
     .trim();
+
+  return { html, teardownDevServer };
 };

@@ -1,19 +1,21 @@
-// eslint-disable-next-line node/no-extraneous-require
-const { teardown: teardownDevServer } = require('jest-dev-server');
 const setup = require('./global-setup');
 
 describe('Demo (preset) => default', () => {
+  let tearDown = () => undefined;
+
   beforeAll(async () => {
-    document.body.innerHTML = await setup();
+    const { html, teardownDevServer } = await setup();
+    document.body.innerHTML = html;
+    tearDown = teardownDevServer;
   }, 15000);
 
   afterAll(async () => {
-    await teardownDevServer();
+    await tearDown();
     document.body.innerHTML = '';
   });
 
   it('should have a headline', () => {
-    const headline = document.getElementById('hops-mdx');
+    const [headline] = document.getElementsByTagName('h1');
 
     expect(headline.textContent).toBe('Hops-MDX!');
   });

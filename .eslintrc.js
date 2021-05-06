@@ -1,4 +1,5 @@
 module.exports = {
+  parser: 'babel-eslint',
   extends: [
     'eslint:recommended',
     'plugin:import/recommended',
@@ -21,7 +22,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: '16.4',
+      version: '17',
     },
   },
   env: {
@@ -30,8 +31,9 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
+    sourceType: 'module',
+    requireConfigFile: false,
   },
 };

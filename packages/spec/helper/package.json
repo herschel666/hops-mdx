@@ -10,5 +10,11 @@
     "transform": {
       "\\.mdx?$": "hops-mdx-jest"
     }
+  },
+  "dependencies": {
+    "react": "*",
+    "react-helmet-async": "*",
+    "react-router-dom": "*",
+    "react-test-renderer": "*"
   }
 }
