@@ -17,7 +17,7 @@
     "@mdx-js/react": "^1.6.22",
     "hops-mixin": "^14.0.0",
     "loader-utils": "^2.0.0",
-    "unist-util-visit": "^2.0.3"
+    "unist-util-visit": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
