@@ -13,7 +13,7 @@
   "hops": {
     "gracePeriod": 0,
     "mdx": {
-      "mdPlugins": [
+      "remarkPlugins": [
         [
           "remark-emoji",
           {

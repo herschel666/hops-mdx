@@ -70,8 +70,8 @@ class HopsMdxMixin extends Mixin {
     const usesYarn = yarnLockFileExists(this.config.rootDir);
     const { loader: babelLoader, options } = jsLoaderConfig;
     const remarkPlugins =
-      this.config.mdx && Array.isArray(this.config.mdx.mdPlugins)
-        ? this.config.mdx.mdPlugins
+      this.config.mdx && Array.isArray(this.config.mdx.remarkPlugins)
+        ? this.config.mdx.remarkPlugins
             .map(requireMdPlugin(usesYarn))
             .filter(Boolean)
         : [];

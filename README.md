@@ -47,14 +47,14 @@ For advanced usage, [check out the MDX documentation](https://mdxjs.com/).
 
 ## Registering plugins
 
-MDX supports [Remark](https://github.com/wooorm/remark) plugins. To register them, define a `mdx.mdPlugins`-property on your [Hops preset configuration](https://github.com/xing/hops#configuration).
+MDX supports [Remark](https://github.com/wooorm/remark) plugins. To register them, define a `mdx.remarkPlugins`-property on your [Hops preset configuration](https://github.com/xing/hops#configuration).
 
 To e.g. enable [remark-emoji](https://www.npmjs.com/package/remark-emoji) support, add the following value to your Hops config:
 
 ```json
 {
   "mdx": {
-    "mdPlugins": ["remark-emoji"]
+    "remarkPlugins": ["remark-emoji"]
   }
 }
 ```
@@ -64,7 +64,7 @@ To e.g. enable [remark-emoji](https://www.npmjs.com/package/remark-emoji) suppor
 ```json
 {
   "mdx": {
-    "mdPlugins": [["remark-emoji", { "padSpaceAfter": true }]]
+    "remarkPlugins": [["remark-emoji", { "padSpaceAfter": true }]]
   }
 }
 ```

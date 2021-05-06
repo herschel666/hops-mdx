@@ -2,7 +2,7 @@ const mdx = require('@mdx-js/mdx');
 const babel = require('@babel/core');
 const { cosmiconfigSync } = require('cosmiconfig');
 
-const defaultMdxConfig = { mdPlugins: [] };
+const defaultMdxConfig = { remarkPlugins: [] };
 
 const options = {
   presets: [
@@ -38,7 +38,7 @@ const requirePlugin = (plugin) => {
 module.exports.process = (src) => {
   const result = cosmiconfigSync('hops').search();
   const { config = defaultMdxConfig } = result;
-  const remarkPlugins = config.mdx.mdPlugins.map(requirePlugin);
+  const remarkPlugins = config.mdx.remarkPlugins.map(requirePlugin);
 
   try {
     const injectedJSX = js`import React from 'react';
