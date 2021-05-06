@@ -54,23 +54,23 @@ This preset can be configured through the `"mdx"` key in your preset config.
 ```json
 "hops": {
   "mdx": {
-    "mdPlugins": […]
+    "remarkPlugins": […]
   }
 }
 ```
 
-| Name            | Type                                    | Required | Description                                                          |
-| --------------- | --------------------------------------- | -------- | -------------------------------------------------------------------- |
-| `mdx.mdPlugins` | `Array<String | Array<String, Object>>` | _no_     | Optional list of [Remark](https://github.com/wooorm/remark) plugins. |
+| Name                | Type          | Required                | Description |
+| ------------------- | ------------- | ----------------------- | ----------- | -------------------------------------------------------------------- |
+| `mdx.remarkPlugins` | `Array<String | Array<String, Object>>` | _no_        | Optional list of [Remark](https://github.com/wooorm/remark) plugins. |
 
-##### `mdPlugins`
+##### `remarkPlugins`
 
 Pass in the module names of remark plugins. E.g. to enable [remark-emoji](https://www.npmjs.com/package/remark-emoji):
 
 ```json
 {
   "mdx": {
-    "mdPlugins": ["remark-emoji"]
+    "remarkPlugins": ["remark-emoji"]
   }
 }
 ```
@@ -80,7 +80,7 @@ If the plugin provides the setting of options, you can pass in an array holding 
 ```json
 {
   "mdx": {
-    "mdPlugins": [["remark-emoji", { "padSpaceAfter": true }]]
+    "remarkPlugins": [["remark-emoji", { "padSpaceAfter": true }]]
   }
 }
 ```
