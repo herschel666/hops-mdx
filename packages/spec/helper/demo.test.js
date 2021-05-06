@@ -1,19 +1,23 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import renderer from 'react-test-renderer';
 
+// eslint-disable-next-line node/no-unpublished-import
 import { App as BasicApp } from '../app';
 
 const App = () => (
-  <MemoryRouter>
-    <BasicApp />
-  </MemoryRouter>
+  <HelmetProvider>
+    <MemoryRouter>
+      <BasicApp />
+    </MemoryRouter>
+  </HelmetProvider>
 );
 
 describe('Demo (helper)', () => {
   it('should have the correct headline', () => {
     const { root } = renderer.create(<App />);
-    const [headline] = root.findByProps({ id: 'hops-mdx' }).children;
+    const [headline] = root.findByType('h1').children;
 
     expect(headline).toBe('Hops-MDX!');
   });
@@ -66,7 +70,7 @@ describe('Demo (helper)', () => {
     const { root } = renderer.create(<App />);
     const {
       children: [text],
-    } = root.findByProps({ href: '#hops-mdx' });
+    } = root.findByType('a');
 
     expect(text).toBe('is a link');
   });

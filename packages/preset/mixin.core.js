@@ -69,13 +69,13 @@ class HopsMdxMixin extends Mixin {
   configureBuild(_, { jsLoaderConfig, allLoaderConfigs }) {
     const usesYarn = yarnLockFileExists(this.config.rootDir);
     const { loader: babelLoader, options } = jsLoaderConfig;
-    const mdPlugins =
+    const remarkPlugins =
       this.config.mdx && Array.isArray(this.config.mdx.mdPlugins)
         ? this.config.mdx.mdPlugins
             .map(requireMdPlugin(usesYarn))
             .filter(Boolean)
         : [];
-    const hastPlugins = [imageToMdx];
+    const rehypePlugins = [imageToMdx];
     const mdxLoaderConfig = {
       test: /\.mdx?$/,
       use: [
@@ -85,7 +85,7 @@ class HopsMdxMixin extends Mixin {
         },
         {
           loader: require.resolve('@mdx-js/loader'),
-          options: { mdPlugins, hastPlugins },
+          options: { remarkPlugins, rehypePlugins },
         },
       ],
     };

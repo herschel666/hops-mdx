@@ -1,8 +1,9 @@
 import { render } from 'hops';
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import Content from './content.mdx';
+
 import styles from './styles.css';
 
 const H1 = ({ children }) => (
