@@ -1,0 +1,10 @@
+{
+  "extends": ["config:base", ":maintainLockFilesWeekly"],
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "updateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ]
+}
