@@ -13,7 +13,7 @@
     "fmt": "prettier --write '**/*.{js,json,css}' '**/README.md'"
   },
   "engines": {
-    "node": "^12 || ^14 || ^15"
+    "node": "^16.0.0"
   },
   "workspaces": [
     "demo",

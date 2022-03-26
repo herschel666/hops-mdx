@@ -8,7 +8,7 @@
     "start": "hops start"
   },
   "engines": {
-    "node": "^12 || ^14 || ^15"
+    "node": "^16.0.0"
   },
   "hops": {
     "gracePeriod": 0,
